@@ -1,0 +1,19 @@
+1. required to be installed
+- neo4j 3.2.x commandline tool (not default windows installer, but the zip)
+- Java Runtime Environment (JRE) 64bit windows (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+2. setting values
+- ENVIRONMENT VARIABLES
+	JAVA_OPTS -d64 (forces to use the 64 bit JVM machine, most pc's default to the 32 bit version due to being installed first for browsers and such)
+	HEAP_SIZE 24G (java heapsize used by the neo4j batch import tool, can also be achieved by setting JAVA_OPTS -Xmx24G (max heap size) -Xms24G (initial heap size, but this is then used for all java programs, ps. leave some memory for the system)
+
+3. change import.bat to point to the zip install neo4j-admin tool
+3.1 change the file paths to point to the data (default expects import.bat to be in the same folder as the data)
+(optional: change database name)
+
+4. run import.bat (database can be found in '<zip-install-folder>/data/databases/<your databasename>') can take a while!
+
+5. run the cypher queries in 'index-queries.txt' (for example through the web interface), can take a while!
+
+notes:
+- make sure you have enough storage space, expect ~2 times the data size in database size

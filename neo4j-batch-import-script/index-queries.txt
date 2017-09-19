@@ -1,0 +1,11 @@
+CREATE CONSTRAINT ON (n:file) ASSERT n.location IS UNIQUE
+CREATE CONSTRAINT ON (n:dir) ASSERT n.location IS UNIQUE
+CREATE CONSTRAINT ON (n:namespace) ASSERT n.fullname IS UNIQUE
+CREATE CONSTRAINT ON (n:class) ASSERT n.fullname IS UNIQUE
+CREATE CONSTRAINT ON (n:struct) ASSERT n.fullname IS UNIQUE
+CREATE CONSTRAINT ON (n:function) ASSERT n.fullname IS UNIQUE
+CREATE INDEX ON :call(run)
+CREATE INDEX ON :call(run, fullname)
+CREATE INDEX ON :event(run)
+CREATE INDEX ON :startEvent(run)
+CREATE INDEX ON :stopEvent(run)
